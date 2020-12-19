@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'tq8mdg859+f*ge9y=l0_pj=k4=(dj=6gt6k@h41wkiguq_+x2l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://djback.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-'default': {
+    'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'ddr7e4q04s92af',
             'USER': 'irfezuizfklesu',
