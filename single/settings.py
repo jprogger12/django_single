@@ -76,9 +76,14 @@ WSGI_APPLICATION = 'single.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'dalm44mi8jdmrk',
+            'USER': 'npoecwandxbciu',
+            'PASSWORD': 'd243b68987393e2d9259feec8c59ad0ac333d60f47c0b6ae8bc6ce45f8eac612',
+            'HOST': 'ec2-54-235-158-17.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
+
 }
 
 
@@ -124,3 +129,11 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
