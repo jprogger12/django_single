@@ -1,0 +1,417 @@
+{% load static %}
+<!doctype html>
+
+<html>
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'logo/brend.png' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/meanmenu.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/animate.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/nivo-slider.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/owl.carousel.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/slick.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/jquery-ui.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/jquery.fancybox.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/default.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'assets/e614c0c9/css/responsive.css' %}" />
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+
+<title>backend {% block title %} {% endblock %}</title>
+
+
+</head>
+
+<body>
+
+
+    <!-- Wrapper Start -->
+    <div class="wrapper homepage">
+
+        <header>
+
+            <!-- Header Top Start -->
+            <div class="header-top">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 header-top-items">
+
+                            <div class="header-top-left">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                                </span>
+                                +998 91 614-93-34
+                            </div>
+
+                            <div class="header-top-left">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
+                                </span>
+                                +998 91 614-93-34
+                            </div>
+
+                            <div class="header-top-left">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                                mirzoakbar245@gmail.com
+                            </div>
+
+                            <div class="header-top-right">
+                                <ul class="header-list-menu f-right">
+                                    <li><a href="{% url 'home' %}">Русский <i class="fa fa-angle-down"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'home' %}">O'zbekcha</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Top End -->
+
+            <!-- Header Bottom Start -->
+            <div class="header-bottom ">
+                <div class="container">
+                    <div class="row">
+                            <div class="col-sm-2 col-5">
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img src="{% static 'logo/logo.png' %}" width="196" height="74"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 d-none d-lg-block">
+                                <div class="middle-menu pull-right">
+                                    <nav>
+                                        <ul class="middle-menu-list" id="yw0">
+                                            <li class="listItem"><a class="listItemLink" href="{% url 'about' 'bosh' %}"><i class="fa fa-building-o" aria-hidden="true"></i> О компании</a></li>
+                                            <li class="listItem"><a class="listItemLink" href="{% url 'payment' %}"><i class="fa fa-truck" aria-hidden="true"></i> Оплата и Доставка</a></li>
+                                            <li class="listItem"><a class="listItemLink" href="{% url 'partner' %}"><i class="fa fa-handshake-o" aria-hidden="true"></i> Tорговые партнеры</a></li>
+                                            <li class="listItem"><a class="listItemLink" href="{% url 'news' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости</a></li>
+                                            <li class="listItem"><a class="listItemLink" href="{% url 'gallery' %}"><i class="fa fa-picture-o" aria-hidden="true"></i> Галерея</a></li>
+{#                                            <li class="listItem"><a class="listItemLink" href="candidate/apply.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Карьера</a></li>#}
+                                            <li class="listItem"><a class="listItemLink" href="{% url 'contact' %}"><i class="fa fa-map-marker" aria-hidden="true"></i> Контакты</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catalog menu -->
+            <div class="catalog-menu">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav" id="yw1">
+                                {% for category in categories %}
+                                    <li class="listItem"><a class="listItemLink" href="{% url 'category' category.name %}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Mobile menu -->
+            <nav class="mobile-menu navbar navbar-expand-lg navbar-light fixed-top">
+
+                <button class="navbar-toggler" id="mobile-menu-expander" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="{% static 'logo/logo.png' %}">
+                </a>
+
+                <div class="phone-and-cart">
+                    <div class="phone" data-toggle="collapse" data-target="#mobile-phone" aria-expanded="false">
+                        <a href="#">
+                            <span class="fa-stack fa-lg" >
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="cart-box">
+                        <ul>
+                            <li>
+                                <a href="cart.html">
+                                    <i class="fa fa-shopping-basket"></i><span class="cart-counter">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="mobile-phone">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <center><a href="#"><h3>+998 91 614-93-34</h3></a></center>
+                            <center><a href="#"><h3>+998 91 614-93-34</h3></a></center>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mobile-menu-expand collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <h3>Каталог продуктов                                <i class="fa fa-times" aria-hidden="true" id="mobile-menu-closer"></i>
+                            </h3>
+                        </li>
+                                {% for category in categories %}
+                                    <li ><a href="{% url 'category' category.name %}">{{ category.name }}</a></li>
+                                {% endfor %}
+
+
+                        <li>
+                            <h3>Меню</h3>
+                        </li>
+
+                            <li class="nav-item"><a href="{% url 'about' 'bosh' %}"> О компании</a></li>
+                            <li class="nav-item"><a href="{% url 'payment' %}"> Оплата и Доставка</a></li>
+                            <li class="nav-item"><a href="{% url 'partner' %}"> Tорговые партнеры</a></li>
+                            <li class="nav-item"><a href="{% url 'news' %}"> Новости</a></li>
+                            <li class="nav-item"><a href="{% url 'gallery' %}"> Галерея</a></li>
+{#                            <li class="nav-item"><a href="candidate/apply.html"> Карьера</a></li>#}
+                            <li class="nav-item"><a href="{% url 'contact' %}"> Контакты</a></li>
+
+
+                        <li>
+                            <h3>Языки</h3>
+                        </li>
+
+                        <li><a href="{% url 'home' %}">O'zbek</a></li>
+                        <li><a href="{% url 'home' %}">Русский</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+            <!-- Mobile Menu  End -->
+
+
+        </header>
+        <!-- Header Area End -->
+
+    {% block main %}
+
+    {% endblock main %}
+
+
+        <footer>
+            <!-- Footer Top Start -->
+            <div class="footer-top pt-50 pb-60">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            <div class="newsletter">
+                                <img src="{% static 'logo/logo.png' %}" width="196" height="74">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row bold-text text-white">
+
+                        <div class="col-md-3 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Меню</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li class="nav-item"><a href="{% url 'about' 'bosh' %}"> О компании</a></li>
+                                        <li class="nav-item"><a href="{% url 'payment' %}"> Оплата и Доставка</a></li>
+                                        <li class="nav-item"><a href="{% url 'partner' %}"> Tорговые партнеры</a></li>
+                                        <li class="nav-item"><a href="{% url 'news' %}"> Новости</a></li>
+                                        <li class="nav-item"><a href="{% url 'gallery' %}"> Галерея</a></li>
+{#                                        <li class="nav-item"><a href="candidate/apply.html"> Карьера</a></li>#}
+                                        <li class="nav-item"><a href="{% url 'contact' %}"> Контакты</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Каталог продуктов</h3>
+                                <div class="footer-content">
+
+                                    <ul class="footer-list" id="yw2">
+                                        {% for category in categories %}
+                                             <li class="listItem"><a class="listItemLink" href="{% url 'category' category.name %}">{{ category.name }}</a></li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Способы оплаты</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+
+                                        <li>
+                                            <a href="">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-exchange fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Безналичный расчёт
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Наличный расчёт
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-calculator fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Оплата пластиковой карточкой
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>                            </div>
+                        </div>
+
+                        <div class="col-md-3 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Контакты</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                +998 91 614-93-34                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                +998 91 914-93-34                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                mirzoakbar245@gmail.com                                           </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                                    <i class="fa  fa-map-marker fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                                Узбекистан, Олтикул.                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="footer-social-content">
+                                                <ul class="social-content-list">
+                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-wifi"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>                                                </ul>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Row End -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Top End -->
+            <!-- Footer Bottom Start -->
+            <div class="footer-bottom text-white">
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p class="copy-right-text">
+                            Copyright © 2020 ООО "Single Page Aplication". Все права защищены.                        </p>
+
+
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Bottom End -->
+        </footer>
+        <!-- Footer End -->
+    </div>
+    <!-- Wrapper End -->
+
+<div class='notifications top-right' id="notifications"></div>
+<script type="text/javascript" src="{% static 'assets/73514647/jquery-3.4.1.slim.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/7272656d/js/jquery-ui-no-conflict.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/store.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/popper.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/jquery.meanmenu.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/jquery.scrollUp.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/jquery.nivo.slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/jquery.fancybox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/plugins.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/e614c0c9/js/main.js' %}"></script>
+</body>
+
+
+
+</html>

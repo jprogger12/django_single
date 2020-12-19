@@ -1,0 +1,57 @@
+{% extends 'main/main.html' %}
+
+
+{% block title %}
+    Контакты
+{% endblock %}
+
+
+{% block main %}
+
+
+<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'contact' %}">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+
+<!-- Blog Area Start -->
+<div class="blog-area pb-60">
+    <div class="container">
+        <div class="row">
+            <!-- Main Blog Start -->
+            <div class="col-sm-12">
+                <!-- Blog Details Start -->
+                <div class="blog-details">
+                    <div class="blog-content">
+                        <h1>Контакты</h1>
+                        <div class="user-content partners-page-item">
+	<h4>Главный офис</h4>
+	<hr>
+	<p>Telefon: +998 91 614-93-34
+	</p>
+	<p>Telefon: +998 91 614-93-34
+	</p>
+	<p>Email: mirzoakbar245@gmail.com
+	</p>
+	<p>Manzil: Andijon, O'zbekiston,
+	</p>
+</div>
+                   </div>
+                </div>  
+            </div>
+            <!-- Main Blog End -->
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Blog Area End -->        
+
+
+{% endblock %}

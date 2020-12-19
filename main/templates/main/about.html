@@ -1,0 +1,70 @@
+{% extends 'main/main.html' %}
+{% block title %}
+    - {{ letter.title}}
+{% endblock %}
+
+{% block main %}
+
+
+        
+<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li>О компании</li>
+                <li><a>{{ letter.title}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+
+
+<!-- Blog Area Start -->
+
+    {% if letter %}
+    <div class="blog-area pb-60">
+    <div class="container">
+        <div class="row">
+            <!-- Main Blog Start -->
+            <div class="col-md-8">
+                <!-- Blog Details Start -->
+                <div class="blog-details">
+                    <div class="blog-content">
+                        <h1>{{ letter.title}}</h1>
+                        <p>{{ letter.text }}</p>
+                    </div>
+                </div>  
+            </div>
+            <!-- Main Blog End -->
+            <!-- Sidebar Main Blog Start -->
+            <div class="col-md-4">
+                <div class="main-right-sidebar border-default universal-padding">
+                   
+                    <!-- Category Post Start -->
+                    <div class="categorie recent-post same-sidebar">
+                        <h3 class="sidebar-title mt-40">О компании</h3>
+                        <ul class="categorie-list">
+                            {% for ab in about %}
+                            <li><a href="{{ ab.get_absolute_url }}">{{ ab.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Category Post End -->
+
+                </div>
+            </div>
+            <!-- Sidebar Main Blog End -->
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+    {% else %}
+    <div class="container">
+        <h4>Poka pust</h4>
+    </div>
+    {% endif %}
+<!-- Blog Area End -->        
+
+{%  endblock %}

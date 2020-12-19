@@ -1,0 +1,216 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+{% block main %}
+<!-- Slider Area Start -->
+<div class="slider-area slider-style-three mt-25">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="slider-wrapper theme-default">
+                    <div id="slider" class="nivoSlider">
+
+                        <a href="#">
+                            <img src="{% static 'uploads/contentblock/41d1518d6821e513119923af2dd6166d.jpg' %}" data-thumb="http://vero.uz/uploads/contentblock/41d1518d6821e513119923af2dd6166d.jpg" title="#slider-0-caption" />
+                        </a>
+                        <a href="#">
+                            <img src="{% static 'uploads/contentblock/51cd113cbd6161d008d5d1fe30dcbacc.jpg' %}" data-thumb="http://vero.uz/uploads/contentblock/51cd113cbd6161d008d5d1fe30dcbacc.jpg" title="#slider-1-caption" />
+                        </a>
+
+                    </div>
+
+                    <div id="slider-0-caption" class="nivo-html-caption nivo-caption">
+                        <div class="text-content-wrapper">
+                                            <div class="text-content">
+                                                <h4 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="2s" data-wow-delay="0s">Цены от производителя </h4>
+
+                                                <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">Пластиковые трубы<br> и Фиттинги </h1>
+
+                                                <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
+                                                    <a class="btn btn-outline" href="#">BACKEND</a>
+                                                </div>
+
+                                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slider-1-caption" class="nivo-html-caption nivo-caption">
+                <div class="text-content-wrapper">
+                                        <div class="text-content">
+                                            <h4 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="2s" data-wow-delay="0s">Гарантия качество</h4>
+
+                                            <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">Алюкобонд и Саморезы</h1>
+
+                                            <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
+                                                <a class="btn btn-outline" >BACKEND</a>
+                                            </div>
+
+                                        </div>
+                </div>
+            </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                    {% for object in product2%}
+                         <div class="single-banner zoom mb-20">
+                        <a href="{{ object.get_absolute_url }}">
+                            <img src="{{ object.img.url }}" height="225"  alt="slider-banner">
+                        </a>
+                    </div>
+                    {% endfor %}
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Slider Area End -->
+
+<!-- Product Area Start -->
+<div class="product-area pt-30">
+    <div class="container">
+
+        <div class="group-title">
+            <h2>Новинки</h2>
+        </div>
+
+        <div class="row">
+
+        {% for p in product_list %}
+        <!-- Single Product Start -->
+        <div class="col-lg-3 col-sm-6">
+            <div class="single-product bold-text">
+        <!-- Product Image Start -->
+        <div class="pro-img">
+            <a href="{{ p.get_absolute_url }}">
+                <img class="primary-img" src="{{ p.img.url }}" alt="single-product">
+            </a>
+        </div>
+        <!-- Product Image End -->
+        <!-- Product Content Start -->
+        <div class="pro-content">
+            <h4><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h4>
+                    <div class="actions-secondary">
+                <a class="add-cart" href="{{ p.get_absolute_url }}" data-toggle="tooltip">
+                    <i class="fa fa-shopping-basket"></i> Подробно</a>
+            </div>
+        </div>
+        <!-- Product Content End -->
+        </div>    </div>
+        <!-- Single Product End -->
+        {% endfor %}
+
+
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- Product Area End -->
+
+
+{#<!-- Company Policy Start -->#}
+{#<div class="company-policy pb-60">#}
+{#    <div class="container">#}
+{##}
+{##}
+{#    </div>#}
+{#</div>#}
+{#<!-- Company Policy End -->#}
+
+
+<!-- Blog Page Start -->
+<div class="blog-area pb-60">
+    <div class="container">
+
+
+        <div class="group-title">
+            <h2>Последние новости</h2>
+        </div>
+
+        <!-- Popular Categorie Activation Start -->
+        <div class="blog-active owl-carousel">
+
+                {% for news in news %}
+
+
+
+                <!-- Single Blog Start -->
+                <div class="single-blog">
+                    <div class="blog-img">
+                        <a href="{{ news.get_absolute_url }}"><img src="{{ news.img.url}}"></a>
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title">
+                            <a href="{{ news.get_absolute_url }}">{{ news.title}}</a>
+                        </h4>
+                        <div class="blog-meta">
+                            {{ news.date}}                </div>
+                        <a class="btn btn-primary" href="{{ news.get_absolute_url }}">Подробно</a>
+                    </div>
+                </div>
+            {% endfor %}
+                <!-- Single Blog End -->
+
+
+
+
+
+        </div>
+        <!-- Popular Categorie Activation End -->
+
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Blog Page End -->
+
+<!-- Brand Logo Start -->
+<div class="brand-area blog-active2 pb-60">
+    <div class="container">
+
+        <div class="group-title">
+            <h2>Наши партнеры</h2>
+        </div>
+
+        <!-- Brand Banner Start -->
+        <div class="brand-banner owl-carousel">
+            {% for part in partner %}
+            <div class="single-brand">
+                    <img src="{{ part.img.url}}">
+                </div>
+            {% endfor %}
+
+        </div>
+        <!-- Brand Banner End -->
+    </div>
+</div>
+<!-- Brand Logo End -->
+
+<!-- Banner Start -->
+<div class="certificates-area blog-active2 pb-60">
+    <div class="container">
+
+        <div class="group-title">
+            <h2>Сертификаты</h2>
+        </div>
+
+<div class="certificates owl-carousel">
+            {% for sert in sertific %}
+                <div class="single-cert">
+                    <a href="{{ sert.img.url}}"><img src="{{ sert.img.url}}"></a>
+                </div>
+            {% endfor %}
+
+</div>
+
+    </div>
+</div>
+<!-- Banner End -->
+
+
+{% endblock %}

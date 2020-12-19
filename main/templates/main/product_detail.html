@@ -1,0 +1,105 @@
+{% extends 'main/main.html' %}
+{% block title %}
+    - {{ prod.title }}
+{% endblock %}
+
+
+
+{% block main %}
+<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li class="active"><a href="{% url 'category' prod.category.name %}">{{ prod.category.name }}</a></li>
+{#                <li class="active"><a href="../category/ppr-fittinglar.html">PPR Fittinglar</a></li>#}
+                <li class="active"><a >{{ prod.title }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+
+<!-- Product Thumbnail Start -->
+<div class="main-product-thumbnail pb-60">
+    <div class="container">
+        <div class="row">
+            <!-- Main Thumbnail Image Start -->
+            <div class="col-lg-5">
+                <!-- Thumbnail Large Image start -->
+                <div class="tab-content">
+                       <div id="thumb0" class="tab-pane active">
+                            <a data-fancybox="images" href="{{prod.img.url}}">
+                                <img src="{{prod.img.url}}">
+                            </a>
+                        </div>
+                    
+                </div>
+                <!-- Thumbnail Large Image End -->
+
+                <!-- Thumbnail Image End -->
+                <div class="product-thumbnail">
+                    <div class="thumb-menu nav">
+                            {% for i in img %}
+                                <a data-toggle="tab" href="#thumb0" class="active" >
+                                     <img src="{{ i.img.url }}">
+                                </a>
+                            {% endfor %}
+                    </div>
+                </div>
+                <!-- Thumbnail image end -->
+            </div>
+            <!-- Main Thumbnail Image End -->
+            <!-- Thumbnail Description Start -->
+            <div class="col-lg-7">
+                <div class="thubnail-desc fix">
+                    <h1 class="product-header">{{ prod.title }}</h1>
+                    
+                    
+                    <hr class="mb-30">
+                   
+                    <div class="product-spec ptb-20">
+                          <h5 class="mb-20 primary ">Mahsulot xususiyatlari</h5>
+                            {% for detail in pdet %}
+                                <dl class="product-spec-item primary">
+                                    <dt>{{ detail.productfeatures }}: </dt>
+                                    <dd>{{ detail.productfeaturestext }}</dd>
+                                </dl>
+                            {% endfor %}
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- Thumbnail Description End -->
+        </div>
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Product Thumbnail End -->
+
+    <!-- Product Thumbnail Description Start -->
+    <div class="thumnail-desc pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="main-thumb-desc nav">
+                        <li><a class="active" data-toggle="tab" href="#dtail">Описание</a></li>
+                    </ul>
+                    <!-- Product Thumbnail Tab Content Start -->
+                    <div class="tab-content thumb-content border-default">
+                        <div id="dtail" class="tab-pane in active">
+                           <p>{{ prod.about }}</p>
+                        </div>
+                    </div>
+                    <!-- Product Thumbnail Tab Content End -->
+                </div>
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Product Thumbnail Description End -->
+        
+{% endblock %}

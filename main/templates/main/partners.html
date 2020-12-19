@@ -1,0 +1,64 @@
+{% extends 'main/main.html' %}
+{% block title %}
+    Tорговые партнеры
+{% endblock %}
+
+
+
+{% block main %}
+        
+<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a >Tорговые партнеры</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+
+<!-- Blog Area Start -->
+<div class="blog-area pb-60">
+    <div class="container">
+        <div class="row">
+            <!-- Main Blog Start -->
+            <div class="col-sm-12">
+                <!-- Blog Details Start -->
+                <div class="blog-details">
+                    <div class="blog-content">
+                        <h1>Tорговые партнеры</h1>
+                        
+                        <!-- Brand Banner Start -->
+                        <div class="row mt-30">
+                                {% for par in partner %}
+                                    <div class="col-md-6">
+                                        <div class="partners-page-item">
+                                            <div class="partners-page-item-img">
+                                                <img src="{{ par.img.url }}">
+                                            </div>
+
+                                            <span class="partners-page-item-content primary ml-20"></span>
+                                        </div>
+                                    </div>
+                                    {% empty %}
+                                    <div class="col-md-12">
+                                    <h4>Spisok Poka pust</h4>
+                                    </div>
+                                {% endfor %}
+
+
+                        </div>
+                        <!-- Brand Banner End -->
+                    </div>  
+                </div>  
+            </div>
+            <!-- Main Blog End -->
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Blog Area End -->        
+
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends 'main/main.html' %}
+{% block title %}
+    {{ category }}
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <h1>{{ category }}</h1>
+</div>
+
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                                    <li class="active"><a >{{ category }}</a></li>
+                            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+    {% if product_list.count != 0 %}
+
+
+
+<!-- Shop Page Start -->
+<form id="store-filter" name="store-filter" method="get">
+<div class="main-shop-page pb-60">
+    <div class="container">
+        <!-- Row End -->
+        <div class="row">
+            <!-- Sidebar Shopping Option Start -->
+{#            <div class="col-lg-3  order-2">#}
+{#                <div class="sidebar white-bg address-wrapper">#}
+{#                    <div class="single-sidebar">#}
+{#        <div class="group-title">#}
+{#            <h2>Каталог продуктов</h2>#}
+{#        </div>#}
+{#        <ul id="yw0">#}
+{#<li class="item_15"><a href="ppr-truby.html">ППР Трубы</a></li>#}
+{#<li class="item_16"><a href="pvh-truby.html">ПВХ Трубы</a></li>#}
+{#<li class="item_17"><a href="ppr-fitingi.html">ППР Фитинги</a></li>#}
+{#<li class="item_18"><a href="pvh-fitingi.html">ПВХ Фитинги</a></li>#}
+{#</ul>    </div>#}
+{#                    <div class="single-sidebar">#}
+{#    <div class="group-title">#}
+{#        <h2>По цене</h2>#}
+{#    </div>#}
+{##}
+{#    <div class="row">#}
+{#        <div class="col-md-6">#}
+{#            <input placeholder="от" onfocusout="this.form.submit()" type="text" name="price[from]" id="price_from" />        </div>#}
+{#        <div class="col-md-6">#}
+{#            <input placeholder="до" onfocusout="this.form.submit()" type="text" name="price[to]" id="price_to" />        </div>#}
+{#    </div>#}
+{#    #}
+{#</div>#}
+{#                    <div class="form-set">#}
+{#                        <a href='product.html' class="btn btn_wide"><i class="fa fa-close"></i> Ochistit filter</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+            <!-- Sidebar Shopping Option End -->                    
+            <!-- Product Categorie List Start -->
+            <div class="col-lg-12 order-lg-2">
+                <!-- Grid & List View Start -->
+                <div class="grid-list-top border-default universal-padding mb-30">
+
+                    <span class="grid-item-list">
+
+                        Продукты: {{ page_obj.start_index }} - {{ page_obj.end_index }}. Всего {{ paginator.object_list.count }}.
+                    </span>
+
+                    <!-- Toolbar Short Area Start -->
+                    <div class="main-toolbar-sorter f-right form-group">
+
+                        <select class="custom-select sort" id="sort-select" onchange="this.form.submit()" name="sort">
+                            <option value="" selected="selected">Sortirovka productov</option>
+                            <option value="price.desc">Produkti po visokim cenam</option>
+                            <option value="price">Produkti po nizkim cenam</option>
+                        </select>
+                    </div>
+                    <!-- Toolbar Short Area End -->
+                </div>
+                <!-- Grid & List View End -->
+                <div class="main-categorie">
+                    <!-- Grid & List Main Area End -->
+                    <div class="tab-content fix">
+
+                        <div class="row">
+                            {% for product in page_obj %}
+                             <div class="col-lg-4 col-sm-6">
+                                   <div class="single-product bold-text">
+                                        <!-- Product Image Start -->
+                                        <div class="pro-img">
+                                            <a href="{{product.get_absolute_url}}">
+                                                <img class="primary-img" src="{{ product.img.url }}" alt="single-product">
+                                            </a>
+                                        </div>
+                                        <!-- Product Image End -->
+                                        <!-- Product Content Start -->
+                                        <div class="pro-content">
+                                            <h4><a href="{{product.get_absolute_url}}">{{ product.title}}</a></h4>
+                                                    <div class="actions-secondary">
+                                                <a class="add-cart" href="{{product.get_absolute_url}}" data-toggle="tooltip">
+                                                    <i class="fa fa-shopping-basket"></i> Подробно</a>
+                                            </div>
+                                        </div>
+                                        <!-- Product Content End -->
+                                   </div>
+                             </div>
+                            {% endfor %}
+                        </div>
+                        <!-- #grid view End -->
+
+                    </div>
+                    <!-- Grid & List Main Area End -->
+                </div>
+
+                <!--Breadcrumb and Page Show Start -->
+                {% if is_paginated %}
+                 <div class="pagination-box fix justify-content-center">
+                    <ul class="blog-pagination" id="yw1">
+                        {% if page_obj.number == 1 %}
+                        <li class="first hidden"><a href="product.html"> << </a></li>
+                        <li class="previous hidden"><a href="product.html"> < </a></li>
+                    {% else %}
+                        <li class="first "><a href="?page=1"> << </a></li>
+                        <li class="previous "><a href="?page={{ page_obj.previous_page_number }}"> < </a></li>
+                    {% endif %}
+                    {% for i in paginator.page_range %}
+                        {% if i == page_obj.number %}
+                            <li class="page active"><a>{{ i }}</a></li>
+
+                        {% else %}
+                            <li class="page"><a href="?page={{ i }}">{{ i }}</a></li>
+                        {%endif%}
+                    {% endfor %}
+                    {% if paginator.num_pages == page_obj.number %}
+                        <li class="next hidden">  > </li>
+                        <li class="last hidden">  >>  </li>
+                    {% else %}
+                        <li class="next "><a href="?page={{ page_obj.next_page_number }}"> > </a></li>
+                        <li class="last "><a href="?page={{ paginator.num_pages }}"> >> </a></li>
+                    {% endif %}
+
+
+
+
+
+                    </ul>
+                </div>
+                {% endif %}
+                <!--Breadcrumb and Page Show End -->
+            </div>
+            <!-- product Categorie List End -->
+        </div>
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>
+</form>
+<!-- Shop Page End -->
+        {% else %}
+        <div class="container">
+            <h6>Spisok Poka pust</h6>
+        </div>
+{% endif %}
+
+{% endblock %}
